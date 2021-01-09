@@ -38,6 +38,9 @@ RUN \
   && php composer-setup.php \
   && php -r "unlink('composer-setup.php');" \
   && mv composer.phar /usr/local/bin/composer \
+  && rm -rf /usr/share/doc/* \
+  && rm -rf /usr/share/locale/* \
+  && rm -rf /usr/share/man/* \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
