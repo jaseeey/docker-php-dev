@@ -40,6 +40,8 @@ RUN \
   && mv composer.phar /usr/local/bin/composer \
   && rm -rf /var/lib/apt/lists/*
 
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
 COPY xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 COPY imagick-policy.xml /etc/ImageMagick-6/policy.xml
 
